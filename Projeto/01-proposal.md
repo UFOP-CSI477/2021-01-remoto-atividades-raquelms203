@@ -1,34 +1,28 @@
 # **CSI606-2021-01 - Remoto - Proposta de Trabalho Final**
-## *Aluna(o): Princesa Leia (Luke Skywalker)*
+## *Aluna: Raquel Martins dos Santos*
 
 --------------
 
-<!-- Descrever um resumo sobre o trabalho. -->
-
 ### Resumo
 
-  (Apresentar um breve resumo sobre o seu trabalho, indicando o contexto e as principais funcionalidades.)
+  Nessa atividade prática será desenvolvido um site de e-commerce utilizando as tecnologias HTML, Javascript com framework React e consumo de uma API Restful.
 
-<!-- Apresentar o tema. -->
 ### 1. Tema
 
-  O trabalho final tem como tema o desenvolvimento de ...
+  O trabalho final tem como tema o desenvolvimento de um site de e-commerce mostrando roupas/calçados disponíveis e possibilidade de adicionar a um carrinho de compras.
 
-<!-- Descrever e limitar o escopo da aplicação. -->
 ### 2. Escopo
 
   Este projeto terá as seguintes funcionalidades...
 
-<!-- Apresentar restrições de funcionalidades e de escopo. -->
+  Esse projeto permitirá ao usuário adicionar e remover produtos do carrinho, adicionar e editar a quantidade desejada e visualizar em detalhes cada um dos produtos disponíveis.
+
 ### 3. Restrições
 
-  Neste trabalho não serão considerados ...
+  Neste trabalho não serão considerados métodos de pagamento e cadastro de usuários.
 
-<!-- Construir alguns protótipos para a aplicação, disponibilizá-los no Github e descrever o que foi considerado. //-->
+
 ### 4. Protótipo
 
-  Protótipos para as páginas (descrever quais páginas) foram elaborados, e podem ser encontrados em...
-
-### 5. Referências
-
-  Referências podem ser incluídas, caso necessário. Utilize o padrão ABNT.
+  Protótipos para as páginas ainda não foram desenvolvidas.
+  
