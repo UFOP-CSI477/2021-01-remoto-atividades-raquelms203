@@ -24,5 +24,6 @@
 
 ### 4. Protótipo
 
-  Protótipos para as páginas ainda não foram desenvolvidas.
+  Protótipos disponível em: 
+  https://www.figma.com/file/4QdAoZM7S3SVAnRK7siOtz/Loja-Tênis?node-id=0%3A1
   
