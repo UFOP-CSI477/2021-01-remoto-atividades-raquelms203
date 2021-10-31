@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.button-calc {
+  background-color: lightgray;
+  height: 40px;
+  width: 60px;
+  font-size: 18px;
+}
+
+.button-op {
+  background-color: lightsteelblue;
+  height: 40px;
+  width: 60px;
+  font-size: 18px;
+  margin-bottom: -10px;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.column-result {  
+  margin-top: 180px;
+}

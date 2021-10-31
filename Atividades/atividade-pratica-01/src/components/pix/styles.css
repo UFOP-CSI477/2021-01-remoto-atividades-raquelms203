@@ -1,0 +1,17 @@
+.money-input {
+  height: 20px;
+  display: flex;
+  gap: 4px;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
