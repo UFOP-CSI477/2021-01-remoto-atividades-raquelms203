@@ -8,6 +8,11 @@
 
 Nessa atividade prática foi desenvolvido um site de e-commerce utilizando as tecnologias HTML, Javascript com framework React e consumo de uma API Restful feita com Node JS.
 
+### Demonstração
+
+Demonstração em vídeo disponível em:
+https://youtu.be/KxnxZmysLJ4
+
 ### 1. Tema
 
 O trabalho final tem como tema o desenvolvimento de um site de e-commerce mostrando roupas/calçados disponíveis e possibilidade de adicionar a um carrinho de compras e efetuar a compra.
