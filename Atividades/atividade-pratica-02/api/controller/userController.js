@@ -46,12 +46,17 @@ exports.view = function (req, res) {
 };
 
 exports.login = function (req, res) {
-  User.findByEmail(req.body.email, function (err, user) {
-    if (err || user.password !== req.body.password) res.send(err);
-    else
+  User.find({ email: req.body.email }, function (err, user) {
+    if (!req.body.email || !req.body.password || err) {
+      res.status(400);
+      res.json(err);
+    } else if (!user[0] || user[0].password !== req.body.password) {
+      res.status(400);
+      res.json(err);
+    } else
       res.json({
         message: "1 user found",
-        data: user,
+        data: user[0],
       });
   });
 };

@@ -1,47 +1,47 @@
 import Axios from "./axios-config";
 
-const subjectService = {
+const requestService = {
   getList: async () => {
     let response;
     try {
-      response = await Axios.get("/subjects");
+      response = await Axios.get("/requests");
     } catch (e) {
       return null;
     }
     return response.data;
   },
-  getSubject: async (id) => {
+  getRequest: async (id) => {
     let response;
     try {
-      response = await Axios.get("/subject/" + id);
+      response = await Axios.get("/request/" + id);
     } catch (e) {
       return null;
     }
     return response.data;
   },
 
-  addSubject: async (json) => {
+  addRequest: async (json) => {
     let response;
     try {
-      response = await Axios.post("/subject", json);
+      response = await Axios.post("/request", json);
     } catch (e) {
       return null;
     }
     return response.data;
   },
-  editSubject: async (id, json) => {
+  editRequest: async (id, json) => {
     let response;
     try {
-      response = await Axios.put("/subject/" + id, json);
+      response = await Axios.put("/request/" + id, json);
     } catch (e) {
       return null;
     }
     return response.data;
   },
-  deleteCityManager: async (id) => {
+  deleteRequest: async (id) => {
     let response;
     try {
-      response = await Axios.delete("/subject/" + id);
+      response = await Axios.delete("/request/" + id);
     } catch (e) {
       return null;
     }
@@ -49,4 +49,4 @@ const subjectService = {
   },
 };
 
-export default subjectService;
+export default requestService;

@@ -10,11 +10,11 @@ export default function AppBarComponent() {
 
   const handleChangeNav = (index) => {
     switch (index) {
-      case 1:
+      case 0:
         navigate("/");
         break;
-      case 2:
-        navigate("/compras");
+      case 1:
+        navigate("/login");
         break;
       default:
         navigate("/");
@@ -25,7 +25,7 @@ export default function AppBarComponent() {
     <AppBar position="static" className="appbar">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <img src={Logo} />
+          <img src={Logo} alt="logo" />
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page, index) => (
               <Button

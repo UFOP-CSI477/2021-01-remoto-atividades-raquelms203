@@ -13,6 +13,14 @@ mongoose.connect("mongodb://localhost:27017/api", {
   useUnifiedTopology: true,
 });
 
+mongoose.set("toJSON", {
+  virtuals: true,
+  transform: (_, converted) => {
+    delete converted._id;
+    delete converted.__v;
+  },
+});
+
 const PORT = process.env.port || 3000;
 
 app.get("/", function (_, res) {
