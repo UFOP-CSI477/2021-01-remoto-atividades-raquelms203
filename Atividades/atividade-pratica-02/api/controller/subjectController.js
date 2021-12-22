@@ -1,4 +1,5 @@
 Subject = require("../model/subjectModel");
+functions = require("../utils/functions");
 
 exports.index = function (_, res) {
   Subject.get(function (err, subjects) {
@@ -18,10 +19,10 @@ exports.index = function (_, res) {
 
 exports.new = function (req, res) {
   var subject = new Subject();
-  subject.name = req.body.name;
+
   subject.price = req.body.price;
-  subject.created_at = new Date();
-  subject.update_at = new Date();
+  subject.created_at = functions.dateToUtc(new Date());
+  subject.update_at = functions.dateToUtc(new Date());
 
   subject.save(function (err) {
     if (err) res.json(err);
@@ -50,7 +51,7 @@ exports.update = function (req, res) {
     else {
       subject.name = req.body.name ? req.body.name : subject.name;
       subject.price = req.body.price ? req.body.price : subject.price;
-      subject.update_at = new Date();
+      subject.update_at = functions.dateToUtc(new Date());
 
       subject.save(function (err) {
         if (err) res.json(err);

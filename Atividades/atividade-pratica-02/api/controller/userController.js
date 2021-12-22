@@ -1,4 +1,5 @@
 User = require("../model/userModel");
+functions = require("../utils/functions");
 
 exports.index = function (_, res) {
   User.get(function (err, users) {
@@ -21,8 +22,8 @@ exports.new = function (req, res) {
   user.name = req.body.name;
   user.email = req.body.email;
   user.password = req.body.password;
-  user.created_at = new Date();
-  user.update_at = new Date();
+  user.created_at = functions.dateToUtc(new Date());
+  user.update_at = functions.dateToUtc(new Date());
 
   user.save(function (err) {
     if (err) res.json(err);
@@ -68,7 +69,7 @@ exports.update = function (req, res) {
       user.name = req.body.name ? req.body.name : user.name;
       user.email = req.body.email ? req.body.email : user.email;
       user.password = req.body.password ? req.body.password : user.password;
-      user.update_at = new Date();
+      user.update_at = functions.dateToUtc(new Date());
 
       user.save(function (err) {
         if (err) res.json(err);

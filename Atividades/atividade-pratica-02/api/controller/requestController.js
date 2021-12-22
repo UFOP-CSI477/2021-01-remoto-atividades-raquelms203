@@ -1,4 +1,5 @@
 Request = require("../model/requestModel");
+functions = require("../utils/functions");
 
 exports.index = function (_, res) {
   Request.get(function (err, requests) {
@@ -24,8 +25,8 @@ exports.new = function (req, res) {
   request.person = req.body.person;
   request.description = req.body.description;
   request.date = req.body.date;
-  request.created_at = new Date();
-  request.update_at = new Date();
+  request.created_at = functions.dateToUtc(new Date());
+  request.update_at = functions.dateToUtc(new Date());
 
   request.save(function (err) {
     if (err) res.json(err);
@@ -57,7 +58,7 @@ exports.update = function (req, res) {
         ? req.body.description
         : request.description;
       request.date = req.body.date ? req.body.date : request.date;
-      request.update_at = new Date();
+      request.update_at = functions.dateToUtc(new Date());
 
       request.save(function (err) {
         if (err) res.json(err);

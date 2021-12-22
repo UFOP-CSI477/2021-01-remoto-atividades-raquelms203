@@ -5,7 +5,7 @@ import Logo from "../../assets/logo.png";
 import "./styles.css";
 
 export default function AppBarComponent() {
-  const pages = ["Mensalidades", "Compras"];
+  const pages = ["Planos", "Administrativo"];
   const navigate = useNavigate();
 
   const handleChangeNav = (index) => {
