@@ -1,70 +1,85 @@
-# Getting Started with Create React App
+# **CSI606-2021-01 - Remoto - Atividade Prática 2**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## _Aluna: Raquel Martins dos Santos_
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+### Resumo
 
-### `npm start`
+Nessa atividade prática foi desenvolvido um site de cadastro de matrículas em uma escola utilizando as tecnologias HTML, Javascript com framework React e consumo de uma API Restful feita com Node JS.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Instruções para instalação e execução
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Pré-requisitos:
 
-### `npm test`
+- Possuir o Node instalado no computador, caso não tenha obter em:
+  https://nodejs.org/en/download/
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+É recomendado adicionar as variáveis de ambiente npm e node no terminal.
 
-### `npm run build`
+#### 5.1 Execução do back-end
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Para rodar o back-end, execute no terminal na pasta /api
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+> node index
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Na porta 3000 será iniciado o back-end com banco de dados Mongo.
 
-### `npm run eject`
+Foram desenvolvidos os seguintes endpoints:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**/users**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+GET: listagem de usuários.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+POST: cadastro de usuário.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+**/login/**
 
-## Learn More
+POST: realiza o login
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**/user/:id**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+GET: retorna o usuário com o id informado.
 
-### Code Splitting
+PUT: atualiza o usuário pelo id informado
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+DELETE: remove o usuário com o id informado.
 
-### Analyzing the Bundle Size
+**/subjects**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+GET: listagem de tipos de matrícula.
 
-### Making a Progressive Web App
+POST: cadastro de tipo de matrícula.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+**/subject/:id**
 
-### Advanced Configuration
+GET: retorna o tipo de matrícula com o id informado.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+PUT: atualiza o tipo de matrícula pelo id informado
 
-### Deployment
+DELETE: remove o tipo de matrícula com o id informado.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+**/requests**
 
-### `npm run build` fails to minify
+GET: listagem de matrículas.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+POST: cadastro de matrícula.
+
+**/subject/:id**
+
+GET: retorna a matrícula com o id informado.
+
+PUT: atualiza a matrícula pelo id informado
+
+DELETE: remove a matrícula com o id informado.
+
+#### 5.2 Execução do front-end
+
+Pré-requisitos:
+
+- Possuir o Node instalado no computador, caso não tenha obter em:
+  https://nodejs.org/en/download/
+
+Para rodar o front-end, execute no terminal na pasta /web
+
+> npm start
