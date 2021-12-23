@@ -27,15 +27,15 @@ Na porta 3000 será iniciado o back-end com banco de dados Mongo.
 
 Foram desenvolvidos os seguintes endpoints:
 
+**/login/**
+
+POST: realiza o login
+
 **/users**
 
 GET: listagem de usuários.
 
 POST: cadastro de usuário.
-
-**/login/**
-
-POST: realiza o login
 
 **/user/:id**
 
@@ -65,7 +65,7 @@ GET: listagem de matrículas.
 
 POST: cadastro de matrícula.
 
-**/subject/:id**
+**/request/:id**
 
 GET: retorna a matrícula com o id informado.
 
