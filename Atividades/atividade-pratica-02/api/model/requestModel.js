@@ -3,11 +3,11 @@ var mongoose = require("mongoose");
 var requestSchema = mongoose.Schema({
   user_id: {
     require: true,
-    type: Number,
+    type: String,
   },
   request_id: {
     require: true,
-    type: Number,
+    type: String,
   },
   person: {
     require: true,

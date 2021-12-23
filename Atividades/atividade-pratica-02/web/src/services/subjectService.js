@@ -23,7 +23,7 @@ const subjectService = {
   addSubject: async (json) => {
     let response;
     try {
-      response = await Axios.post("/subject", json);
+      response = await Axios.post("/subjects", json);
     } catch (e) {
       return null;
     }

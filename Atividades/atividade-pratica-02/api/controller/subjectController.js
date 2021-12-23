@@ -21,6 +21,7 @@ exports.new = function (req, res) {
   var subject = new Subject();
 
   subject.price = req.body.price;
+  subject.name = req.body.name;
   subject.created_at = functions.dateToUtc(new Date());
   subject.update_at = functions.dateToUtc(new Date());
 

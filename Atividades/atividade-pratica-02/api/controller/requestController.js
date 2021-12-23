@@ -27,6 +27,7 @@ exports.new = function (req, res) {
   request.date = req.body.date;
   request.created_at = functions.dateToUtc(new Date());
   request.update_at = functions.dateToUtc(new Date());
+  request.date = functions.dateToUtc(new Date());
 
   request.save(function (err) {
     if (err) res.json(err);

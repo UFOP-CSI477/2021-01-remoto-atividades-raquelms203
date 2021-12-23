@@ -1,5 +1,6 @@
 import { Box, Tab, Tabs } from "@material-ui/core";
 import { useState } from "react";
+import Students from "../Students";
 import Subject from "../Subjects";
 
 export default function Admin() {
@@ -27,7 +28,7 @@ export default function Admin() {
         <Tab label="Alunos" />
         <Tab label="Matrículas" />
       </Tabs>
-      {value === 0 ? <div>Item Two</div> : <Subject />}
+      {value === 0 ? <Students /> : <Subject />}
     </Box>
   );
 }

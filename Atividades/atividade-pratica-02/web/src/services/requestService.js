@@ -23,7 +23,7 @@ const requestService = {
   addRequest: async (json) => {
     let response;
     try {
-      response = await Axios.post("/request", json);
+      response = await Axios.post("/requests", json);
     } catch (e) {
       return null;
     }

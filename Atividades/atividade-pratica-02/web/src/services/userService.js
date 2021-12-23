@@ -23,7 +23,7 @@ const userService = {
   addUser: async (json) => {
     let response;
     try {
-      response = await Axios.post("/user", json);
+      response = await Axios.post("/users", json);
     } catch (e) {
       return null;
     }

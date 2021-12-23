@@ -32,7 +32,7 @@ export default function Home() {
     if (response !== null) {
       setRows(response.data || []);
     }
-  }, []);
+  }, [setRows]);
 
   useEffect(() => {
     fetchSubjects();

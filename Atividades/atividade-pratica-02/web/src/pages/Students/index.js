@@ -9,43 +9,41 @@ import {
 } from "@material-ui/core";
 import { DataGrid } from "@material-ui/data-grid";
 import { useEffect, useCallback, useState } from "react";
-import subjectService from "../../services/subjectService";
-import { formatDate, formatPrice } from "../../utils/functions";
+import requestService from "../../services/requestService";
+import { formatDate } from "../../utils/functions";
 import { Delete, Edit } from "@material-ui/icons";
+import subjectService from "../../services/subjectService";
 
-export default function Subjects() {
+export default function Requests() {
   const [rows, setRows] = useState([]);
   const [openEdit, setOpenEdit] = useState(false);
   const [idEdit, setIdEdit] = useState();
-  const [subject, setSubject] = useState({});
+  const [request, setRequest] = useState({});
+  const [listSubjects, setListSubjects] = useState([]);
   const columns = [
     {
-      field: "name",
+      field: "person",
       headerName: "Nome",
       align: "center",
       headerAlign: "center",
       width: window.innerWidth * 0.17,
     },
     {
-      field: "price",
-      headerName: "Preço",
+      field: "description",
+      headerName: "Descrição",
       align: "center",
       headerAlign: "center",
       width: window.innerWidth * 0.17,
-      renderCell: (gridParams) => {
-        const { price } = gridParams.row;
-        return <div>{formatPrice(price)}</div>;
-      },
     },
     {
-      field: "created_at",
-      headerName: "Criado em",
+      field: "date",
+      headerName: "Data",
       align: "center",
       headerAlign: "center",
       width: window.innerWidth * 0.17,
       renderCell: (gridParams) => {
-        const { created_at } = gridParams.row;
-        return <div>{formatDate(created_at)}</div>;
+        const { date } = gridParams.row;
+        return <div>{formatDate(date)}</div>;
       },
     },
     {
@@ -64,12 +62,16 @@ export default function Subjects() {
       headerName: "Opções",
       width: window.innerWidth * 0.17,
       renderCell: (gridParams) => {
-        const { id, name, price } = gridParams.row;
+        const { id, person, subject_id, description } = gridParams.row;
         return (
           <div>
             <IconButton
               onClick={() => {
-                setSubject({ name: name, price: price });
+                setRequest({
+                  person: person,
+                  subject_id: subject_id,
+                  description: description,
+                });
                 handleEdit(id);
               }}
             >
@@ -90,12 +92,14 @@ export default function Subjects() {
     },
   ];
 
-  const fetchSubjects = useCallback(async () => {
-    const response = await subjectService.getList();
+  const fetchRequests = useCallback(async () => {
+    const response = await requestService.getList();
+    const responseSubjects = await subjectService.getList();
     if (response !== null) {
       setRows(response.data || []);
     }
-  }, [setRows]);
+    setListSubjects(responseSubjects.data);
+  }, [setRows, setListSubjects]);
 
   function handleEdit(id) {
     setIdEdit(id);
@@ -103,27 +107,25 @@ export default function Subjects() {
   }
 
   async function handleDelete(id) {
-    const response = await subjectService.deleteSubject(id);
+    const response = await requestService.deleteRequest(id);
     if (response !== null) {
-      await fetchSubjects();
+      await fetchRequests();
     } else alert("Ocorreu um erro");
-    setSubject();
   }
 
-  async function updateSubject() {
-    let response = await subjectService.editSubject(idEdit, subject);
+  async function updateRequest() {
+    let response = await requestService.editRequest(idEdit, request);
     if (response === null) alert("Ocorreu um erro");
-    setSubject();
   }
 
-  async function addSubject() {
-    let response = await subjectService.addSubject(subject);
+  async function addRequest() {
+    let response = await requestService.addRequest(request);
     if (response === null) alert("Ocorreu um erro");
   }
 
   useEffect(() => {
-    fetchSubjects();
-  }, [fetchSubjects]);
+    fetchRequests();
+  }, [fetchRequests]);
 
   return (
     <div>
@@ -155,27 +157,41 @@ export default function Subjects() {
         <DialogContent style={{ marginBottom: 30 }}>
           <Grid container direction="column" spacing={3}>
             <Grid item xs={12} sm={12} md={12}>
+              <select
+                value={request?.subject_id}
+                onChange={(e) => {
+                  setRequest({ ...request, subject_id: e.target.value });
+                }}
+              >
+                {listSubjects !== null &&
+                  listSubjects?.map((item, index) => (
+                    <option key={index} value={item.id}>
+                      {item.name}
+                    </option>
+                  ))}
+              </select>
+            </Grid>
+            <Grid item xs={12} sm={12} md={12}>
               <TextField
                 fullWidth
                 label="Nome"
-                defaultValue={subject?.name}
+                defaultValue={request?.person}
                 size="small"
                 variant="outlined"
                 onChange={(event) => {
-                  setSubject({ ...subject, name: event.target.value });
+                  setRequest({ ...request, person: event.target.value });
                 }}
               />
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
               <TextField
                 fullWidth
-                label="Preço"
-                defaultValue={subject?.price}
-                type="number"
+                label="Descrição"
+                defaultValue={request?.description}
                 size="small"
                 variant="outlined"
                 onChange={(event) => {
-                  setSubject({ ...subject, price: Number(event.target.value) });
+                  setRequest({ ...request, description: event.target.value });
                 }}
               />
             </Grid>
@@ -187,9 +203,9 @@ export default function Subjects() {
           </Button>
           <Button
             onClick={async () => {
-              if (idEdit) await updateSubject();
-              else await addSubject();
-              await fetchSubjects();
+              if (idEdit) await updateRequest();
+              else await addRequest();
+              await fetchRequests();
               setOpenEdit(false);
             }}
             color="primary"
