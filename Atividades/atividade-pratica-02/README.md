@@ -1,4 +1,4 @@
-# **CSI606-2021-01 - Remoto - Atividade Prática 2**
+# **CSI606-2021-01 - Remoto - Prova**
 
 ## _Aluna: Raquel Martins dos Santos_
 
@@ -6,7 +6,7 @@
 
 ### Resumo
 
-Nessa atividade prática foi desenvolvido um site de cadastro de matrículas em uma escola utilizando as tecnologias HTML, Javascript com framework React e consumo de uma API Restful feita com Node JS.
+Nessa prova foi desenvolvido um site de controle de vacinação utilizando as tecnologias HTML, Javascript com a biblioteca React e consumo de uma API Restful feita com Node JS.
 
 ### Instruções para instalação e execução
 
@@ -45,33 +45,63 @@ PUT: atualiza o usuário pelo id informado
 
 DELETE: remove o usuário com o id informado.
 
-**/subjects**
+**/persons**
 
-GET: listagem de tipos de matrícula.
+GET: listagem de pacientes.
 
-POST: cadastro de tipo de matrícula.
+POST: cadastro de paciente.
 
-**/subject/:id**
+**/person/:id**
 
-GET: retorna o tipo de matrícula com o id informado.
+GET: retorna o paciente com o id informado.
 
-PUT: atualiza o tipo de matrícula pelo id informado
+PUT: atualiza o paciente pelo id informado
 
-DELETE: remove o tipo de matrícula com o id informado.
+DELETE: remove o paciente com o id informado.
 
-**/requests**
+**/vaccines**
 
-GET: listagem de matrículas.
+GET: listagem de vacinas.
 
-POST: cadastro de matrícula.
+POST: cadastro de vacina.
 
-**/request/:id**
+**/vaccine/:id**
 
-GET: retorna a matrícula com o id informado.
+GET: retorna a vacina com o id informado.
 
-PUT: atualiza a matrícula pelo id informado
+PUT: atualiza a vacina pelo id informado
 
-DELETE: remove a matrícula com o id informado.
+DELETE: remove a vacina com o id informado.
+
+**/unities**
+
+GET: listagem de unidades.
+
+POST: cadastro de unidade.
+
+**/unity/:id**
+
+GET: retorna a unidade com o id informado.
+
+PUT: atualiza a unidade pelo id informado
+
+**/registers**
+
+GET: listagem de registros.
+
+POST: cadastro de registro.
+
+**/register/:id**
+
+GET: retorna o registro com o id informado.
+
+PUT: atualiza o registro pelo id informado
+
+DELETE: remove o registro com o id informado.
+
+**/doses**
+
+GET: retorna as informações sobre as doses aplicadas.
 
 #### 5.2 Execução do front-end
 
@@ -83,3 +113,5 @@ Pré-requisitos:
 Para rodar o front-end, execute no terminal na pasta /web
 
 > npm start
+
+OBS: Desenvolvi o CRUD para todos os modelos tanto no front-end quanto no back-end porque pretendo utilizar esse sistema para o meu portfólio. Qualquer dúvida estou a disposição :)
